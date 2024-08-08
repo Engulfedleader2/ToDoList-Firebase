@@ -6,16 +6,68 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+
+
 
 struct ContentView: View {
+    
+    @State private var newItemTitle = ""
+    @ObservedObject private var viewModel = TodoViewModel()
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView{
+            VStack{
+                HStack{
+                    TextField("Enter new item", text: $newItemTitle)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button(action: {
+                        if !newItemTitle.isEmpty {
+                            viewModel.addItem(title: newItemTitle)
+                            newItemTitle = ""
+                        }
+                    }){
+                        Text("Add")
+                    }
+                }
+                .padding()
+                
+                List{
+                    ForEach(viewModel.items) { item in
+                        HStack{
+                            Text(item.title)
+                            Spacer()
+                            Button(action: {
+                                viewModel.toggleCompletion(item: item)
+                            }){
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                            }
+                        }
+                    }
+                    .onDelete(perform: deleteItems)
+                }
+                .navigationTitle("To-Do List")
+            }
         }
-        .padding()
+    }
+//    func addItem(title: String){
+//        //TODO:
+//        let newItem = TodoItem(title: title, isCompleted: false)
+//        items.append(newItem)
+//    }
+//    func toggleCompletion(item: TodoItem){
+//        //TODO:
+//        if let index = items.firstIndex(where: {$0.id == item.id}){
+//            items[index].isCompleted.toggle()
+//        }
+//    }
+    func deleteItems(at offsets: IndexSet){
+        //TODO:
+        offsets.forEach { index in
+            viewModel.removeItem(item: viewModel.items[index])
+        }
+       
     }
 }
 

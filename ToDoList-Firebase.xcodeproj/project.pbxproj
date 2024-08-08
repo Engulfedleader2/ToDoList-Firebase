@@ -3,11 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		AC10EBFC2C6561D600614B7E /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = AC10EBFB2C6561D600614B7E /* FirebaseDatabase */; };
+		AC10EBFE2C65671E00614B7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC10EBFD2C65671E00614B7E /* GoogleService-Info.plist */; };
+		AC10EC002C6567D700614B7E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = AC10EBFF2C6567D700614B7E /* FirebaseFirestore */; };
+/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC10EBE92C65613900614B7E /* ToDoList-Firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ToDoList-Firebase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC10EBFD2C65671E00614B7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -19,6 +26,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC10EBFC2C6561D600614B7E /* FirebaseDatabase in Frameworks */,
+				AC10EC002C6567D700614B7E /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -28,6 +37,7 @@
 		AC10EBE02C65613900614B7E = {
 			isa = PBXGroup;
 			children = (
+				AC10EBFD2C65671E00614B7E /* GoogleService-Info.plist */,
 				AC10EBEB2C65613900614B7E /* ToDoList-Firebase */,
 				AC10EBEA2C65613900614B7E /* Products */,
 			);
@@ -61,6 +71,8 @@
 			);
 			name = "ToDoList-Firebase";
 			packageProductDependencies = (
+				AC10EBFB2C6561D600614B7E /* FirebaseDatabase */,
+				AC10EBFF2C6567D700614B7E /* FirebaseFirestore */,
 			);
 			productName = "ToDoList-Firebase";
 			productReference = AC10EBE92C65613900614B7E /* ToDoList-Firebase.app */;
@@ -90,6 +102,9 @@
 				Base,
 			);
 			mainGroup = AC10EBE02C65613900614B7E;
+			packageReferences = (
+				AC10EBFA2C6561D600614B7E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = AC10EBEA2C65613900614B7E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -104,6 +119,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC10EBFE2C65671E00614B7E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +335,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AC10EBFA2C6561D600614B7E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AC10EBFB2C6561D600614B7E /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC10EBFA2C6561D600614B7E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		AC10EBFF2C6567D700614B7E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC10EBFA2C6561D600614B7E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AC10EBE12C65613900614B7E /* Project object */;
 }
