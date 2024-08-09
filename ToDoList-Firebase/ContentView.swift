@@ -24,7 +24,7 @@ struct ContentView: View {
                     Button(action: {
                         if !newItemTitle.isEmpty {
                             viewModel.addItem(title: newItemTitle)
-                            newItemTitle = ""
+                        newItemTitle = ""
                         }
                     }){
                         Text("Add")
